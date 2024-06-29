@@ -61,6 +61,46 @@ button:hover {
   background-color: #0056b3;
 }
 </style>
+<script>
+    function validateForm() {
+      var id = document.getElementById("id").value;
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var feedback = document.getElementById("feedback").value;
+      var rating = document.getElementById("rating").value;
+
+      if (id == "") {
+        alert("ID must be filled out");
+        return false;
+      }
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+      if (email == "") {
+        alert("Email must be filled out");
+        return false;
+      }
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+      if (feedback == "") {
+        alert("Feedback must be filled out");
+        return false;
+      }
+      if (rating == "" || rating < 1 || rating > 10) {
+        alert("Rating must be between 1 and 10");
+        return false;
+      }
+      return true;
+    }
+
+    function validateEmail(email) {
+      var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return re.test(email);
+    }
+  </script>
   </head>
   <body>
     <div class="container">
